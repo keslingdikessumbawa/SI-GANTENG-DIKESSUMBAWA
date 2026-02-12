@@ -759,8 +759,52 @@ function generatePDF() {
     doc.save(`IKL_SPPG_${document.getElementById('nama_sppg').value || 'Form'}.pdf`);
 }
 
+/* ============================= */
+/* RESPONSIVE ANDROID */
+/* ============================= */
+@media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        border-radius: 8px;
+    }
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header h2 {
+        font-size: 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr; /* jadi 1 kolom */
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    .btn-download {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    #total-skor {
+        font-size: 1.5rem;
+    }
+}
 
 </script>
 
 </body>
+
 </html>
