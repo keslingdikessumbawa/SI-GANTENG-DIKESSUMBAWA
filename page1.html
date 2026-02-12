@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran SLHS - SI GANTENG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        primary: '#28A745',
+                        accent: '#FFC107',
+                        offwhite: '#F8F9FA',
+                        darkgray: '#343A40',
+                        lightgray: '#E9ECEF'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-lightgray font-sans text-darkgray antialiased">
+
+    <div class="min-h-screen py-10 px-4">
+        <div class="max-w-4xl mx-auto">
+            
+            <a href="index.html" class="inline-flex items-center text-primary font-bold mb-6 hover:translate-x-[-5px] transition-transform">
+                <i class="fas fa-arrow-left mr-2"></i> Kembali ke Beranda
+            </a>
+
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                
+                <div class="bg-primary p-8 text-white">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-white/20 p-3 rounded-xl">
+                            <i class="fas fa-file-signature text-3xl"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl md:text-3xl font-bold">Formulir Pendaftaran SLHS</h1>
+                            <p class="text-white/80">Lengkapi data Dapur SPPG sesuai dokumen persyaratan asli.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="pendaftaranForm" class="p-8 space-y-8">
+                    
+                    <div class="space-y-6">
+                        <h3 class="text-lg font-bold text-primary border-b pb-2 italic">I. Identitas Tempat Pengolahan</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block font-semibold mb-2">Nama Pengusaha</label>
+                                <input type="text" id="namaPengusaha" placeholder="Contoh: Ahmad Riyadi" class="w-full p-3 bg-offwhite border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary outline-none">
+                            </div>
+                            <div>
+                                <label class="block font-semibold mb-2">Nama Tempat Pengolahan</label>
+                                <input type="text" id="namaTempat" placeholder="Nama Dapur SPPG" class="w-full p-3 bg-offwhite border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-2">Alamat Lengkap Dapur</label>
+                            <textarea id="alamatDapur" rows="3" placeholder="Alamat lengkap di wilayah Sumbawa..." class="w-full p-3 bg-offwhite border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary outline-none"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <h3 class="text-lg font-bold text-primary border-b pb-2 italic">II. Upload Dokumen Persyaratan (PDF/JPG)</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                          <div class="p-4 border rounded-xl bg-offwhite hover:border-primary transition">
+                                <label class="block font-bold mb-2 text-darkgray">Dokumen Penetapan SPPG (BGN)</label>
+                                <input type="file" class="upload-input w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-green-700">
+                            </div>
+                            <div class="p-4 border rounded-xl bg-offwhite hover:border-primary transition">
+                                <label class="block font-bold mb-2 text-darkgray">Surat Permohonan Dari SPPG</label>
+                                <input type="file" class="upload-input w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-green-700">
+                            </div>
+                            <div class="p-4 border rounded-xl bg-offwhite hover:border-primary transition">
+                                <label class="block font-bold mb-2 text-darkgray">Sertifikat Pelatihan Keamanan Pangan (Penjamah 47 Orang)</label>
+                                <input type="file" class="upload-input w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-green-700">
+                            </div>
+                            <div class="p-4 border rounded-xl bg-offwhite hover:border-primary transition">
+                                <label class="block font-bold mb-2 text-darkgray">Sertifikat Pelatihan Keamanan Pangan (Pemilik/Pengelola) </label>
+                                <input type="file" class="upload-input w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-green-700">
+                            </div>
+                            <div class="p-4 border rounded-xl bg-offwhite hover:border-primary transition">
+                                <label class="block font-bold mb-2 text-darkgray">Form IKL Jasa Boga B (Puskesmas)</label>
+                                <input type="file" class="upload-input w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-green-700">
+                            </div>
+                            <div class="p-4 border rounded-xl bg-offwhite hover:border-primary transition">
+                                <label class="block font-bold mb-2 text-darkgray">Denah Layout Dapur</label>
+                                <input type="file" class="upload-input w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-green-700">
+                            </div>
+                            <div class="p-4 border rounded-xl bg-offwhite hover:border-primary transition">
+                                <label class="block font-bold mb-2 text-darkgray">Surat Keterangan Sehat (50 Orang)</label>
+                                <input type="file" class="upload-input w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-green-700">
+                            </div>
+                            <div class="p-4 border rounded-xl bg-offwhite hover:border-primary transition">
+                                <label class="block font-bold mb-2 text-darkgray">Hasil Lab Kualitas Air/Makanan</label>
+                                <input type="file" class="upload-input w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-green-700">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-yellow-50 p-4 rounded-xl border border-accent/20">
+                        <input type="checkbox" id="agree" class="mt-1 w-5 h-5 accent-primary">
+                        <label for="agree" class="text-sm italic">Saya menyatakan bahwa data yang diinput benar dan sesuai standar PMK No. 2 Tahun 2023.</label>
+                    </div>
+
+                    <button type="button" id="submitBtn" onclick="kirimSemuaData()" class="w-full py-4 bg-accent text-darkgray font-bold rounded-xl hover:bg-yellow-500 transition shadow-lg">
+                        <i class="fas fa-paper-plane mr-2"></i> Kirim Pendaftaran &rarr;
+                    </button>
+
+                </form>
+            </div>
+            <p class="text-center mt-8 text-darkgray/60 text-sm">&copy; 2026 SI GANTENG - Dinas Kesehatan Kabupaten Sumbawa</p>
+        </div>
+    </div>
+
+    <script>
+    async function kirimSemuaData() {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby11ebHEcUWwGYTKqFM2JDqCrW8pq6y4r3-GMFhVVhCi_jOEV0LtZdm7SSlIsVmtsYi6g/exec';
+        const submitBtn = document.getElementById('submitBtn');
+        const agreeCheckbox = document.getElementById('agree');
+        const namaTempat = document.getElementById('namaTempat').value; // Mengambil Nama Tempat
+        
+        // Validasi
+        if (!namaTempat) {
+            alert("Harap isi Nama Tempat Pengolahan terlebih dahulu!");
+            return;
+        }
+        if (!agreeCheckbox.checked) {
+            alert("Harap centang pernyataan persetujuan!");
+            return;
+        }
+
+        const fileInputs = document.querySelectorAll('.upload-input');
+        let filesToUpload = [];
+        fileInputs.forEach(input => {
+            if (input.files.length > 0) {
+                filesToUpload.push(input.files[0]);
+            }
+        });
+
+        if (filesToUpload.length === 0) {
+            alert("Pilih minimal satu berkas!");
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> Mengirim ${filesToUpload.length} Berkas...`;
+
+        try {
+            for (let file of filesToUpload) {
+                await uploadSatuFile(file, scriptURL, namaTempat);
+            }
+            alert("Berhasil! Seluruh berkas telah tersimpan dengan nama: " + namaTempat + " - (Nama File)");
+            window.location.reload();
+        } catch (error) {
+            alert("Terjadi kesalahan. Cek koneksi.");
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Kirim Pendaftaran &rarr;';
+        }
+    }
+
+   function uploadSatuFile(file, url, namaDapur) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const bytes = Array.from(new Uint8Array(e.target.result));
+            const payload = JSON.stringify({
+                bytes: bytes,
+                fileName: file.name,
+                mimeType: file.type,
+                prefix: namaTempat // Data ini yang akan dibaca Apps Script sebagai data.prefix
+            });
+
+            fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: payload
+            }).then(resolve).catch(reject);
+        };
+        reader.readAsArrayBuffer(file);
+    });
+}
+</script>
+</body>
+</html>

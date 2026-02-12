@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>SI-GANTENG | Dinas Kesehatan</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://uploads.onecompiler.io/44c6ug5db/44c6ufqe4/500px-Lambang_Kabupaten_Sumbawa.png=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#28A745',    // Hijau Kemenkes
+                        accent: '#FFC107',     // Kuning Tombol
+                        offwhite: '#F8F9FA',   // Putih Tulang
+                        darkgray: '#343A40',   // Abu Gelap
+                        lightgray: '#E9ECEF',  // Abu Terang Background
+                        hijaudikes : '#48D1CC', // hijau dikes
+                        hijaukuning : '#b5ce08', // hijaukuning
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-darkgray font-sans antialiased">
+
+    <nav class="sticky top-0 z-50 bg-[#28A745] text-white shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
+        <div class="flex items-center space-x-3">
+            <img src="https://uploads.onecompiler.io/44c6ug5db/44c6ufqe4/500px-Lambang_Kabupaten_Sumbawa.png" alt="Logo" class="h-10 w-auto">
+            <span class="text-xl font-bold tracking-wide">SI GANTENG</span>
+        </div>
+
+        <button id="menu-btn" class="md:hidden text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div id="menu-mobile" class="hidden absolute top-full left-0 text-right w-full bg-[#28A745] flex-row md:static md:flex md:flex-row md:w-auto md:bg-transparent md:space-x-8 shadow-xl md:shadow-none">
+            <a href="#" class="px-6 py-4  border-b border-white/10 md:border-none hover:bg-green-700 md:hover:bg-transparent hover:text-[#FFC107]">Beranda</a>
+            <a href="#fitur" class="px-6 py-4  border-b border-white/10 md:border-none hover:bg-green-700 md:hover:bg-transparent hover:text-[#FFC107]">Fitur Utama</a>
+            <a href="#alur" class="px-6 py-4  border-b border-white/10 md:border-none hover:bg-green-700 md:hover:bg-transparent hover:text-[#FFC107]">Alur Pendaftaran</a>
+            <a href="https://tpm.kemkes.go.id/rbi/web/" target="_blank" class="px-6 py-4  border-b border-white/10 md:border-none hover:bg-green-700 md:hover:bg-transparent hover:text-[#FFC107]">Cek Sertifikat</a>
+            <a href="https://wa.me/62895327342315?text=Halo%20Tim%20Kesling%20Dinas%20Kesehatan%20Sumbawa,%20saya%20ingin%20berkonsultasi%20mengenai%20SLHS" class="px-6 py-4 hover:bg-green-700 md:hover:bg-transparent hover:text-[#FFC107]">Konsultasi</a>
+        </div>
+    </div>
+</nav>
+
+    <section class="relative h-screen min-h-[600px] flex items-center justify-center text-center px-4">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556910103-1c02745a30bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center">
+          <img src="https://uploads.onecompiler.io/44c6ug5db/44c6ufqe4/Cuplikan%20layar%202026-01-31%20135039.png" alt="Kantor Dinkes" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-primary/80"></div> </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-offwhite space-y-6">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight drop-shadow-md">
+                SI GANTENG  <br>
+              <smal>
+                <span class="text-red-700">S</span>istem 
+                <span class="text-red-700">I</span>nformasi Di<span class="text-red-700">g</span>it<span class="text-red-700">a</span>l Higie<span class="text-red-700">n</span>e Sani<span class="text-red-700">t</span>asi T<span class="text-red-700">e</span>ri<span class="text-red-700">n</span>te<span class="text-red-700">g</span>rasi
+                
+                </smal>  
+            </h1>
+            <p class="text-lg md:text-xl font-light max-w-2xl mx-auto opacity-90">
+                Selamat datang di SI-GANTENG. Layanan penerbitan Sertifikat Laik Higiene Sanitasi (SLHS) khusus Dapur Satuan Pelayanan Pemenuhan Gizi (SPPG).
+            </p>
+            <div class="pt-4">
+                <a href="page1.html" target="_blank" class="inline-block bg-accent text-darkgray font-bold py-4 px-8 rounded-full shadow-lg hover:bg-yellow-400 hover:scale-105 transition transform duration-300 text-lg">
+                    Daftar SLHS Sekarang <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6 text-center md:text-left">
+                    Mengapa Harus SI GANTENG?
+                </h2>
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                    SI GANTENG hadir untuk mempermudah pelaku usaha dan pengelola Dapur SPPG di Kabupaten Sumbawa dalam mengurus legalitas kesehatan lingkungan secara digital, cepat, dan akuntabel.
+                </p>
+                
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="bg-green-100 text-primary p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <div>
+                            <h4 class="font-bold text-lg text-darkgray">Terintegrasi Digital</h4>
+                            <p class="text-gray-500">Semua proses dari pendaftaran hingga penerbitan sertifikat dilakukan dalam satu sistem.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-green-100 text-primary p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <div>
+                            <h4 class="font-bold text-lg text-darkgray">Transparan & Cepat</h4>
+                            <p class="text-gray-500">Pantau status pengajuan Anda secara real-time tanpa perlu bolak-balik ke kantor dinas.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-green-100 text-primary p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <div>
+                            <h4 class="font-bold text-lg text-darkgray">Sesuai Standar Kemenkes</h4>
+                            <p class="text-gray-500">Formulir dan penilaian mengacu pada standar baku kesehatan lingkungan terbaru.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center">
+               <img src="https://img.freepik.com/free-vector/checking-boxes-concept-illustration_114360-2465.jpg?w=740" alt="Ilustrasi Verifikasi" class="max-w-xs md:max-w-md">
+            </div>
+        </div>
+    </section>
+
+<section id="berkas" class="py-16 bg-offwhite">
+    <div class="container mx-auto px-6">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="bg-primary p-6">
+                <h2 class="text-2xl font-bold text-white flex items-center">
+                    <i class="fas fa-file-medical mr-3"></i> 
+                    Berkas Persyaratan Registrasi SLHS
+                </h2>
+                <p class="text-white/80 mt-1">Pastikan semua dokumen dalam format PDF sebelum diunggah.</p>
+                <p class="text-black/80 mt-1">Nama dokumen di Awali dengan nama dapur,contoh <b>"SPPG Sumbawa-Nama file".</b></p>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-lightgray border-b">
+                            <th class="px-6 py-4 font-bold text-darkgray w-16 text-center">No</th>
+                            <th class="px-6 py-4 font-bold text-darkgray">Nama Dokumen Persyaratan</th>
+                            <th class="px-6 py-4 font-bold text-darkgray w-32 text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="px-6 py-4 text-center font-medium">1</td>
+                            <td class="px-6 py-4">Nama Pengusaha & Nama Tempat Pengolahan Makanan (Jasa Boga B)</td>
+                            <td class="px-6 py-4 text-center"><span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">Wajib</span></td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="px-6 py-4 text-center font-medium">2</td>
+                            <td class="px-6 py-4">Alamat Lengkap Tempat Pengolahan Makanan</td>
+                            <td class="px-6 py-4 text-center"><span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">Wajib</span></td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="px-6 py-4 text-center font-medium">3</td>
+                            <td class="px-6 py-4">Surat Keterangan Sehat dari Puskesmas/Rumah Sakit (Untuk 50 Orang)</td>
+                            <td class="px-6 py-4 text-center"><span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">Wajib</span></td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="px-6 py-4 text-center font-medium">4</td>
+                            <td class="px-6 py-4">Sertifikat Pelatihan Keamanan Pangan Siap Saji (Pemilik/Pengelola)</td>
+                            <td class="px-6 py-4 text-center"><span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">Wajib</span></td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="px-6 py-4 text-center font-medium">5</td>
+                            <td class="px-6 py-4">Sertifikat Pelatihan Keamanan Pangan Siap Saji (Penjamah Pangan/47 Orang)</td>
+                            <td class="px-6 py-4 text-center"><span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">Wajib</span></td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="px-6 py-4 text-center font-medium">6</td>
+                            <td class="px-6 py-4">Bukti Hasil Pemeriksaan Kualitas Air & Makanan dari Laboratorium Terakreditasi</td>
+                            <td class="px-6 py-4 text-center"><span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">Wajib</span></td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="px-6 py-4 text-center font-medium">7</td>
+                            <td class="px-6 py-4">Formulir Inspeksi Kesehatan Lingkungan (IKL) Jasa Boga B dari Puskesmas</td>
+                            <td class="px-6 py-4 text-center"><span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">Wajib</span></td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="px-6 py-4 text-center font-medium">8</td>
+                            <td class="px-6 py-4">Surat Permohonan dari SPPG</td>
+                            <td class="px-6 py-4 text-center"><span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">Wajib</span></td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="px-6 py-4 text-center font-medium">9</td>
+                            <td class="px-6 py-4">Dokumen Penetapan SPPG dari Badan Gizi Nasional</td>
+                            <td class="px-6 py-4 text-center"><span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">Wajib</span></td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="px-6 py-4 text-center font-medium">10</td>
+                            <td class="px-6 py-4">Denah Layout Dapur</td>
+                            <td class="px-6 py-4 text-center"><span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">Wajib</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="p-6 bg-gray-50 text-center">
+                <p class="text-sm text-gray-500 italic">* Seluruh berkas di atas mengacu pada standar kesehatan lingkungan terbaru sesuai PMK No. 2 Tahun 2023.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="fitur" class="py-20 bg-lightgray">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Fitur Utama SI GANTENG</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-hijaukuning rounded-xl shadow-md hover:shadow-xl transition duration-300 p-8 flex flex-col items-center text-center transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-green-100 text-primary rounded-full flex items-center justify-center text-3xl mb-6">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-darkgray">Registrasi Online</h3>
+                    <p class="text-gray-500 mb-6 flex-grow">Belum memiliki sertifikat? Daftarkan Dapur SPPG Anda sekarang. Pastikan berkas persyaratan sudah siap.</p>
+                    <a href="page1.html" target="_blank" class="w-full py-3 bg-primary text-white rounded-lg font-semibold hover:bg-green-700 transition">Isi Formulir</a>
+                </div>
+               <div class="bg-hijaukuning rounded-xl shadow-md hover:shadow-xl transition duration-300 p-8 flex flex-col items-center text-center transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-green-100 text-primary rounded-full flex items-center justify-center text-3xl mb-6">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-darkgray">formulir Inspeksi Kesehatan Lingkungan</h3>
+                    <p class="text-gray-500 mb-6 flex-grow">Instrumen penilaian khusus untuk petugas  verifikasi lapangan.</p>
+                    <a href="page2.html" target="_blank" class="w-full py-3 bg-primary text-white rounded-lg font-semibold hover:bg-green-700 transition">Lakukan IKL</a>
+                </div>
+                <div class="bg-hijaukuning rounded-xl shadow-md hover:shadow-xl transition duration-300 p-8 flex flex-col items-center text-center transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-green-100 text-primary rounded-full flex items-center justify-center text-3xl mb-6">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-darkgray">Cek Registrasi SLHS</h3>
+                    <p class="text-gray-500 mb-6 flex-grow">Cek registrasi SLHS jasa boga/SPPG yang sudah diterbitkan disekitar anda.</p>
+                    <a href="https://tpm.kemkes.go.id/rbi/web/" target="_blank" class="w-full py-3 bg-primary text-white rounded-lg font-semibold hover:bg-green-700 transition">Cek Registrasi</a>
+                </div>
+                <div class="bg-hijaukuning rounded-xl shadow-md hover:shadow-xl transition duration-300 p-8 flex flex-col items-center text-center transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-green-100 text-primary rounded-full flex items-center justify-center text-3xl mb-6">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-darkgray">Download SLHS</h3>
+                    <p class="text-gray-500 mb-6 flex-grow">Sudah mendaftar? unduh e-Sertifikat Laik Higiene Sanitasi Anda di sini.</p>
+                    <a href="https://mega.nz/folder/ScsQnD4Q#wLNzzEKYWZaU-q8lENA-tw" target="_blank" class="w-full py-3 bg-primary text-white rounded-lg font-semibold hover:bg-green-700 transition"> Download E-SLHS</a>
+                </div>
+                <div class="bg-hijaukuning rounded-xl shadow-md hover:shadow-xl transition duration-300 p-8 flex flex-col items-center text-center transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-green-100 text-primary rounded-full flex items-center justify-center text-3xl mb-6">
+                        <i class="fas fa-folder"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-darkgray">Pusat Unduhan</h3>
+                    <p class="text-gray-500 mb-6 flex-grow">Unduh regulasi, panduan teknis, dan format pengajuan offline, jika terjadi kendala teknis.</p>
+                    <a href="https://mega.nz/folder/2Rc23KDY#l6dkyW9HV58imiNNKhp3pA" target="_blank" class="w-full py-3 bg-primary text-white rounded-lg font-semibold hover:bg-green-700 transition">Buka Folder</a>
+                </div>
+                <div class="bg-hijaukuning rounded-xl shadow-md hover:shadow-xl transition duration-300 p-8 flex flex-col items-center text-center transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-green-100 text-primary rounded-full flex items-center justify-center text-3xl mb-6">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-darkgray">Layanan Konsultasi</h3>
+                    <p class="text-gray-500 mb-6 flex-grow">Mengalami kendala teknis atau butuh informasi seputar syarat Kesling? Hubungi Tim kami.</p>
+                    <a href="https://wa.me/62895327342315?text=Halo%20Tim%20Kesling%20Dinas%20Kesehatan%20Sumbawa,%20saya%20ingin%20berkonsultasi%20mengenai%20SLHS" target="_blank" class="w-full py-3 bg-primary text-white rounded-lg font-semibold hover:bg-green-700 transition">Hubungi via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="alur" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-16">Langkah Mudah Mendapatkan Sertifikat</h2>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center relative">
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-10 transform -translate-y-1/2"></div>
+
+                <div class="w-full md:w-1/4 flex flex-col items-center text-center mb-10 md:mb-0">
+                    <div class="w-16 h-16 bg-accent text-darkgray rounded-full flex items-center justify-center text-2xl font-bold shadow-lg mb-4 z-10 border-4 border-white">
+                        1
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Daftar Akun</h4>
+                    <p class="text-sm text-gray-500 px-4">Isi data diri dan upload dokumen persyaratan SLHS.</p>
+                </div>
+
+                <div class="w-full md:w-1/4 flex flex-col items-center text-center mb-10 md:mb-0">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-lg mb-4 z-10 border-4 border-white">
+                        2
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Verifikasi & IKL</h4>
+                    <p class="text-sm text-gray-500 px-4">Tim Kesling melakukan verifikasi berkas dan Inspeksi Kesehatan Lingkungan (IKL).</p>
+                </div>
+
+                <div class="w-full md:w-1/4 flex flex-col items-center text-center mb-10 md:mb-0">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-lg mb-4 z-10 border-4 border-white">
+                        3
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Penerbitan</h4>
+                    <p class="text-sm text-gray-500 px-4">Jika memenuhi syarat, SLHS akan diterbitkan secara elektronik.</p>
+                </div>
+
+                <div class="w-full md:w-1/4 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-lg mb-4 z-10 border-4 border-white">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Selesai</h4>
+                    <p class="text-sm text-gray-500 px-4">Download sertifikat SLHS Anda melalui dashboard aplikasi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer id="kontak" class="bg-primary text-offwhite border-t border-green-600">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">SI GANTENG</h3>
+                    <p class="mb-4 text-green-100">
+                        Tim Kesehatan Lingkungan (Kesling) & Admin SI GANTENG<br>
+                        <strong>Dinas Kesehatan Kabupaten Sumbawa</strong>
+                    </p>
+                    <p class="text-sm text-green-100">
+                        <i class="fas fa-map-marker-alt mr-2"></i> Jl. Garuda No.81, Sumbawa Besar, NTB
+                    </p>
+                </div>
+
+                <div class="md:text-right">
+                    <h4 class="text-xl font-bold mb-4">Butuh Bantuan?</h4>
+                    <ul class="space-y-2">
+                        
+                        <li>
+                            <a href="https://wa.me/62895327342315?text=Halo%20Tim%20Kesling%20Dinas%20Kesehatan%20Sumbawa,%20saya%20ingin%20berkonsultasi%20mengenai%20SLHS" target="_blank"" class="hover:text-accent transition flex items-center justify-start md:justify-end gap-2">
+                                <span>Bpk. Ahmad Riyadi (Admin)</span>
+                                <span class="bg-green-700 px-3 py-1 rounded text-sm"><i class="fab fa-whatsapp"></i> 0895327342315</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-green-600 mt-10 pt-6 text-center text-sm text-green-200">
+                &copy; 2026 Dinas Kesehatan Kab. Sumbawa. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+    
+<script>
+  const btn = document.getElementById('menu-btn');
+  const nav = document.getElementById('menu-mobile');
+
+  btn.addEventListener('click', () => {
+    // Menghapus atau menambah class 'hidden' saat diklik
+    nav.classList.toggle('hidden');
+    nav.classList.toggle('flex');
+    nav.classList.toggle('flex-col');
+    nav.classList.toggle('absolute');
+    nav.classList.toggle('top-16');
+    nav.classList.toggle('left-0');
+    nav.classList.toggle('w-full');
+    nav.classList.toggle('bg-primary');
+    nav.classList.toggle('p-6');
+  });
+</script>
+
+</body>
+</html>

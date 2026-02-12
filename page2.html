@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir IKL SPPG</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+    <style>
+    
+    .logo-sppg {
+    width: 80px;          /* ukuran ideal */
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+        :root { --primary-green: #28a745; --bg: #f4f7f6; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f0f2f5 var(--bg); padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; }
+        
+        .header { background: var(--primary-green); color: white; padding: 25px; display: flex; align-items: center; gap: 15px; }
+        .header h2 { margin: 0; font-size: 1.5rem; }
+
+        .content { padding: 30px; }
+        .section-title { 
+            color: var(--primary-green);
+            font-style: italic;
+            font-weight: bold;
+            border-bottom: 2px solid var(--light-green);
+            padding-bottom: 8px;
+            margin: 30px 0 20px 0;
+            font-size: 1.1rem; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .field { display: flex; flex-direction: column; margin-bottom: 15px; }
+        label { font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: #555; }
+        input, select, textarea { padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { background: #f8f9fa; color: #555; font-weight: bold; border: 1px solid var(--border-color); padding: 12px; }
+        td { border: 1px solid var(--border-color); padding: 12px; vertical-align: middle;  }
+        .center { text-align: center; }
+
+        .total-box { background: #eafaf1; padding: 20px; border-radius: 8px; text-align: right; margin-top: 20px; border: 1px solid #28a745; }
+        #total-skor { font-size: 2rem; font-weight: bold; color: var(--primary-green); }
+
+        .btn-download { background: var(--primary-green); color: white; border: none; width: 100%; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 20px; font-size: 1rem; }
+        .btn-download:hover { background: #218838; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px;"> <img src="https://uploads.onecompiler.io/44c6ug5db/44c6ufqe4/500px-Lambang_Kabupaten_Sumbawa.png"rel="stylesheet" class="logo-sppg" /> </div>
+        <div>
+            <h2>INSTRUMEN INSPEKSI KESEHATAN LINGKUNGAN</h2>
+             <h2>Satuan Pelayanan Pemenuhan Gizi (SPPG)</h2>
+             <h2>Dinas Kesehatan Kabupaten Sumbawa</h2>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="section-title">I. Identitas Satuan Pelayanan Pemenuhan Gizi (SPPG)</div>
+        <div class="grid">
+            <div class="field">
+                <label>Nama SPPG</label>
+                <input type="text" placeholder="Contoh SPPG Sumbawa..." id="nama_sppg">
+            </div>
+            <div class="field">
+                <label>Nama Penanngung Jawab</label>
+                <input type="text" placeholder="Nama KaSPPG" id="nama_yayasan">
+            </div>
+        </div>
+        <div class="field">
+            <label>Alamat Lengkap</label>
+            <textarea id="alamat" rows="2"></textarea>
+        </div>
+        <div class="grid">
+            <div class="field">
+                <label>Jumlah Porsi Harian</label>
+                <input type="number" placeholder="0" id="porsi">
+            </div>
+            <div class="field">
+                <label>Tanggal Pemeriksaan</label>
+                <input type="date" id="tanggal">
+            </div>
+        </div>
+        <div class="grid">
+          <div class="field">
+            <label>Jumlah Total Penjamah</label>
+            <input type="number" placeholder="0" id="penjamah">
+          </div>
+            <div class="field">
+            <label>Penjamah yang Memiliki Sertifikat Keamanan Pangan</label>
+            <input type="number" placeholder="0" id="penjamahpangan">
+          </div>
+        </div>
+        <div class="grid">
+            <div class="field">
+                <label>Nama Penilai</label>
+                <input type="text" placeholder="Nama petugas sanitarian" id="namasanitarian">
+            </div>
+            <div class="field">
+                <label>Kontak Penanngung Jawab</label>
+                <input type="text" placeholder="Nomor WhatsApp/Hp" id="kontak">
+            </div>
+        </div>
+        
+        <div class="grid">
+            <div class="field">
+                <label> Air Baku</label>
+                <input type="text" placeholder="PDAM/Sumur Bor/Gali" id="airbaku">
+            </div>
+            <div class="field">
+                <label>Air Pengolahan</label>
+                <input type="text" placeholder="Air Filter/PDAM/Galon isi ulang" id="airpengolahan">
+            </div>
+        </div>
+
+        <div class="section-title">II. Persyaratan Kriteria & Penilaian</div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="50">No</th>
+                    <th>Kriteria</th>
+                    <th width="80">Bobot</th>
+                    <th width="100">Opsi</th>
+                    <th width="80">Nilai</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td class="center">1</td>
+                    <td>Halaman SPPG dalam kondisi bersih, tidak bersemak, dan tidak terdapat tanaman yang menempel langsung pada dinding bangunan pengolahan pangan.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this, 2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                <tr>
+                    <td class="center">2</td>
+                    <td>Area parkir kendaraan jauh dari pintu masuk bangunan pengolahan pangan untuk mencegah kontaminasi asap kendaraan masuk ke ruang pengolahan pangan</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this, 2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                <tr>
+                    <td class="center">3</td>
+                    <td>Bangunan SPPG dilengkapi dengan drainase pada bagian luar dengan kondisi bersih, tidak tersumbat atau meluap, dan memiliki grease trap/penangkap lemak.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this, 2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                <tr>
+                    <td class="center">4</td>
+                    <td>Pintu masuk bahan pangan dan produk jadi dibuat secara terpisah</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this, 2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                <tr>
+                    <td class="center">5</td>
+                    <td>Area bebas banjir, jika tidak, maka terdapat pengendalian untuk mencegah kontaminasi terhadap pangan yang sedang ditangani</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                <tr>
+                    <td class="center">6</td>
+                    <td>Area bebas dari polusi (contoh: pencemaran bau/asap/debu), dan jika tidak, maka terdapat pengendalian untuk mencegah kontaminasi terhadap pangan yang ditangani.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                <tr>
+                    <td class="center">7</td>
+                    <td>Bangunan / area memiliki ventilasi udara yang cukup</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+                    <tr>
+                    <td class="center">8</td>
+                    <td>Tersedia ruang/area khusus untuk istirahat karyawan yang bersih dan bebas dari vektor atau binatang pembawa penyakit (semua siklus kehidupan) dan tanda- tanda keberadaannya</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">9</td>
+                    <td>Tersedia area penyimpanan pakaian dan barang pribadi karyawan (loker) yang bersih dan cukup (pria dan wanita).</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">10</td>
+                    <td>Tempat penyimpanan (loker) dilengkapi dengan tata tertib penggunaan loker dan tidak digunakan sebagai tempat penyimpanan makanan dan peralatan pengolahan pangan.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+                    <tr>
+                    <td class="center">11</td>
+                    <td>Jumlah toilet cukup sesuai jumlah karyawan dan dibuat terpisah antara laki-laki dan perempuan</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">12</td>
+                    <td>Desain toilet kuat dengan permukaan halus dan mudah dibersihkan.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">13</td>
+                    <td>Pintu atau ventilasi toilet tidak membuka langsung ke area pengolahan pangan</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                <tr>
+                    <td class="center">14</td>
+                    <td>Toilet dilengkapi dengan sabun, air mengalir, alat pengering tangan, tempat sampah, dan petunjuk mencuci tangan setelah dari toilet.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+              
+                    <tr>
+                    <td class="center">15</td>
+                    <td>Jumlah tempat cuci tangan cukup sesuai dengan jumlah karyawan dan posisi tempat cuci tangan mudah dijangkau di area dimana banyak kontak tangan penjamah dengan pangan</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">16</td>
+                    <td>Tempat cuci tangan, desain kuat, mudah dibersihkan, dan dilengkapi dengan petunjuk cuci tangan.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">17</td>
+                    <td>Dilengkapi dengan air mengalir, sabun cuci tangan, dan pengering tangan (bisa hand dryer atau tissue, tetapi tidak boleh kain serbet)</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+                <tr>
+                    <td class="center">18</td>
+                    <td>Luas area cukup untuk memudahkan pergerakan bahan atau personil</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+                <tr>
+                    <td class="center">19</td>
+                    <td>Struktur bangunan (dinding, plafon, atau atap) tidak ada lubang / retakan yang menjadi potensi masuknya atau bersarangnya vektor atau binatang pembawapenyakit.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+                
+                    <tr>
+                    <td class="center">20</td>
+                    <td>Lantai bersih dan terawat (tidak rusak atau tidak retak/berlubang)</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">21</td>
+                    <td>Tidak terdapat genangan air di lantai.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">22</td>
+                    <td>Pertemuan lantai dan dinding tidak membentuk sudut mati (jika tidak demikian, maka harus dilakukan pembersihan secara rutin dan tidak ditemukan bukti visual kumpulan debu/kotoran)</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                <tr>
+                    <td class="center">23</td>
+                    <td>Pintu dalam kondisi bersih dan terawat (tidak berlubang dan dapat menutup sempurna)</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+                <tr>
+                    <td class="center">24</td>
+                    <td>Pencahayaan cukup terang dengan lampu tercover (jika lampu terbuat dari bahan mudah pecah) dan kondisi cover (jika ada) bersih dan terawat.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+               
+                    <tr>
+                    <td class="center">25</td>
+                    <td>Tinggi langit-langit minimal 2.4 meter dari lantai</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">26</td>
+                    <td>Kondisi langit-langit tertutup, bersih dan terawat (contoh: tidak ada jamur, debu, kotoran, sarang hama atau sawang).</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">27</td>
+                    <td>Tidak ada kondensasi air di langit-langit</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+                
+                    <tr>
+                    <td class="center">28</td>
+                    <td>Tidak ada sampah berserakan</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">29</td>
+                    <td>Terdapat tempat sampah dalam kondisi tertutup, sampah tidak mengunung (frekuensi pembuangan minimal 1 x 24 jam) dan kondisi bersih.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                
+               
+                    <tr>
+                    <td class="center">30</td>
+                    <td>Bebas vektor atau binatang pembawa penyakit (semua tingkat siklus kehidupannya) dan tanda-tanda keberadaannya (contoh: kotoran atau bagian tubuh hama)</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">31</td>
+                    <td>Terdapat jebakan hama yang ditempatkan pada posisi yang sesuai dan dalam kondisi terawat (tidak rusak, tidak berjamur, dan bersih).</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">32</td>
+                    <td>Pengendalian vektor tidak mengunakan bahan kimia (pestisida) di area dalam bangunan pengolahan pangan.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">33</td>
+                    <td>Jika ventilasi berupa bukaan (contoh: jendela/exhaust) yang terbuka keluar, maka terdapat kasa/tirai/plastik curtain anti serangga untuk mencegah masuknya vektor atau binatang pembawa penyakit. Kasa/tirai/plastik curtain dalam kondisi bersih dan terawat.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                
+                
+                    <tr>
+                    <td class="center">34</td>
+                    <td>Penyimpanan bahan baku, ingredien dan kemasan tidak langsung menyentuh lantai (contoh: menggunakan palet) dengan jarak minimal 15 cm dari lantai, 5 cm dari dinding, dan 60 cm dari langit-langit</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">35</td>
+                    <td>Kemasan bekas bahan baku mentah tidak disimpan di area yang terdapat pangan matang.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">36</td>
+                    <td>Penyimpanan bahan mentah tidak menyatu dengan pangan matang (contoh diruang penyimpanan, chiller atau freezer), dan penyimpanan bahan pangan (mentah atau matang) tidak menyatu dengan penyimpanan bahan kimia.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">37</td>
+                    <td>Bahan baku pangan dan ingredient dalam kondisi baik dan tidak busuk atau berlendir.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">38</td>
+                    <td>Khusus untuk bahan baku olahan terkemas dalam kondisi baik (tidak kedaluwarsa, kemasan utuh/tidak bocor, dan memiliki izin edar dari instansi terkait).</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+          
+                <tr>
+                    <td class="center">39</td>
+                    <td>Bahan kimia (contoh untuk cuci tangan/sanitasi tangan, cuci peralatan, pembersihan lantai) disimpan pada area khusus dengan akses terbatas dan memiliki identitas yang jelas. Kuantitas bahan kimia yang digunakan di setiap area hanya untuk penggunaan harian (tidak dalam kemasan galon/bulk).</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                <tr>
+                    <td class="center">40</td>
+                    <td>Tidak ada pangan matang yang disimpan sementara di area luar bangunan pengolahan dalam kondisi terbuka.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                <tr>
+                    <td class="center">41</td>
+                    <td>Penyimpanan kemasan yang kontak pangan matang dalam kondisi bersih.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+               
+                    <tr>
+                    <td class="center">42</td>
+                    <td>Personil sehat/tidak menunjukkan gejala penyakit.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">43</td>
+                    <td>Personil menggunakan APD (celemek, masker, hairnet/penutup rambut) dengan lengkap dan benar.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">44</td>
+                    <td>Personil menggunakan pakaian kerja khusus selama berada di area pengolahan pangan.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">45</td>
+                    <td>Personil menerapkan personil higiene dengan benar (contoh: tidak memakai aksesoris/perhiasan, rutin mencuci tangan, tidak batuk/bersin langsung di atas pangan,tidak merokok/makan/minum saat mengolah pangan, tidak mengaruk atau menyentuh bagian badan dan kemudian menyentuh pangan).</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">46</td>
+                    <td>Jika personil memiliki luka, maka luka harus ditutup dengan perban/sejenisnya dan ditutup penutup yang tahan air dan dalam kondisi bersih.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                <tr>
+                    <td class="center">47</td>
+                    <td>Personil yang bekerja di area ini memiliki pemahaman mengenai prinsip umum higiene personil dan keamanan pangan.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+                    <tr>
+                    <td class="center">48</td>
+                    <td>Peralatan dan kemasan dibuat dari bahan tara pangan (kedap air, tahan karat, tidak terbuat dari kayu, dan tidak mentransfer zat berbahaya) dan kondisi terawat (tidak rusak, tidak berkarat, dan bersih).</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">49</td>
+                    <td>Peralatan dalam kondisi terawat (tidak rusak/pecah, tidak berkarat, dan bersih).</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">50</td>
+                    <td>Khusus untuk kemasan pangan matang dalam kondisi bersih dan terawat (tidak rusak/pecah, tidak berkarat, dan bersih (tidak terdapat sisa bahan kimia pencucian atau sisa makanan), serta dapat ditutup sempurna).</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                
+                
+                    <tr>
+                    <td class="center">51</td>
+                    <td>Proses pengolahan pangan, jika terdapat proses thawing/pencairan bahan pangan, maka dilakukan dengan benar.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">52</td>
+                    <td>Pangan dimasak sampai matang sempurna dengan penampakan visual normal (tidak ada benda asing) dan bau normal.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">53</td>
+                    <td>Suhu inti pangan yang dimasak minimal 75oC (lakukan sampling pada saat inspeksi dan ukur menggunakan termometer).</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                </tr>
+                
+                
+                    <tr>
+                    <td class="center">54</td>
+                    <td>Kondisi kendaraan pengangkutan pangan matang bersih, terawat dan bebas dari vektor atau binatang pembawa penyakit.</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+                <tr>
+                    <td class="center">55</td>
+                    <td>Pangan yang diangkut dalam kondisi kemasan tertutup sempurna dan pengangkutan sesuai untuk menjaga suhu panas atau dingin (sesuai jenis pangan).</td>
+                    <td class="center">2</td>
+                    <td><select class="opt" onchange="updateRow(this,2)"><option value="0">Pilih</option><option value="1">Ya</option><option value="0">Tidak</option></select></td>
+                    <td class="center row-val">0</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="total-box">
+            <label>TOTAL SKOR INSPEKSI</label>
+            <p>Total Skor: <strong id="total-skor">0</strong></p>
+            <p>Persentase: <strong id="persentase-skor">0 %</strong></p>
+          
+            
+        </div>
+        
+        <div class="total-box" style="margin-top:15px; background:#fff3cd; border:1px solid #ffc107;">
+    <label>STATUS KELAYAKAN</label>
+    <div id="status-kelayakan" style="font-size:1.5rem; font-weight:bold;">-</div>
+</div>
+
+
+        <button class="btn-download" onclick="generatePDF()">SIMPAN PDF/DOWNLOAD</button>
+    </div>
+</div>
+
+<script>
+    function updateRow(el, bobot) {
+    const row = el.closest('tr');
+    const valCell = row.querySelector('.row-val');
+    valCell.innerText = parseInt(el.value) * bobot;
+
+    let total = 0;
+    document.querySelectorAll('.row-val').forEach(c => {
+        total += parseInt(c.innerText) || 0;
+    });
+
+    document.getElementById('total-skor').innerText = total;
+
+    // ====== PERHITUNGAN PERSENTASE ======
+    const maxSkor = 110; // 55 soal x 2
+    const persentase = ((total / maxSkor) * 100).toFixed(2);
+
+    // jika ada elemen persentase di HTML
+    const persenEl = document.getElementById('persentase-skor');
+    if (persenEl) {
+        persenEl.innerText = persentase + " %";
+    }
+
+    // ====== PENENTUAN STATUS (BERDASARKAN 80%) ======
+    const batasLaik = 80; // persen
+
+    const statusEl = document.getElementById('status-kelayakan');
+
+    if (persentase >= batasLaik) {
+        statusEl.innerText = "LAIK SEHAT";
+        statusEl.style.color = "#28a745";
+    } else {
+        statusEl.innerText = "TIDAK LAIK SEHAT";
+        statusEl.style.color = "#dc3545";
+    }
+}
+
+
+function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const maxSkor = 110;
+    const totalSkor = parseInt(document.getElementById('total-skor').innerText) || 0;
+    const persentase = ((totalSkor / maxSkor) * 100).toFixed(2) + " %";
+
+    // 1. Header PDF
+    doc.setFillColor(40, 167, 69);
+    doc.rect(0, 0, 210, 40, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(18);
+    doc.text("INSTRUMEN INSPEKSI KESEHATAN LINGKUNGAN", 15, 20);
+    doc.setFontSize(15);
+    doc.text("Satuan Pelayanan Pemenuhan Gizi (SPPG)", 15, 28);
+    doc.setFontSize(15);
+    doc.text("Dinas Kesehatan Kabupaten Sumbawa", 15, 35);
+
+    // 2. Data Identitas
+    doc.setTextColor(0, 0, 0);
+    doc.setFontSize(12);
+    doc.setFont(undefined, 'bold');
+    doc.text("I. Identitas Satuan Pelayanan Pemenuhan Gizi (SPPG)", 15, 50);
+    
+    doc.setFontSize(10);
+    doc.setFont(undefined, 'normal');
+
+    const dataIdentity = [
+        ["Nama SPPG", ": " + document.getElementById('nama_sppg').value],
+        ["Nama Penanngung Jawab", ": " + document.getElementById('nama_yayasan').value],
+        ["Alamat Lengkap", ": " + document.getElementById('alamat').value],
+        ["Porsi Harian", ": " + document.getElementById('porsi').value],
+        ["Tanggal Penilaian", ": " + document.getElementById('tanggal').value],
+        ["Jumlah Total Penjamah", ": " + document.getElementById('penjamah').value],
+        ["Jumlah Sertifikat Penjamah", ": " + document.getElementById('penjamahpangan').value],
+        ["Nama Petugas Penilai", ": " + document.getElementById('namasanitarian').value],
+        ["Nomor Penanngung Jawab", ": " + document.getElementById('kontak').value],
+        ["Air Baku", ": " + document.getElementById('airbaku').value],
+        ["Air Pengolahan", ": " + document.getElementById('airpengolahan').value]
+        
+    ];
+    
+    doc.autoTable({
+        startY: 55,
+        body: dataIdentity,
+        theme: 'plain',
+        styles: { cellPadding: 1, fontSize: 10 },
+        columnStyles: { 0: { cellWidth: 40, fontStyle: 'bold' } }
+    });
+
+    // 3. Tabel Penilaian
+    doc.setFont(undefined, 'bold');
+    doc.text("II. Persyaratan Kriteria & Penilaian", 15, doc.lastAutoTable.finalY + 10);
+
+    const rows = [];
+    document.querySelectorAll('#table-body tr').forEach(tr => {
+        const cells = tr.querySelectorAll('td');
+        const select = tr.querySelector('select');
+
+        if (!select || cells.length < 5) return;
+
+        const textOpsi = select.options[select.selectedIndex].text;
+
+        rows.push([
+            cells[0].innerText.trim(),
+            cells[1].innerText.trim(),
+            cells[2].innerText.trim(),
+            textOpsi,
+            cells[4].innerText.trim()
+        ]);
+    });
+
+    doc.autoTable({
+        startY: doc.lastAutoTable.finalY + 15,
+        head: [['No', 'Kriteria', 'Bobot', 'Opsi', 'Nilai']],
+        body: rows,
+        headStyles: { fillColor: [40, 167, 69] },
+        styles: { fontSize: 9, valign: 'middle' },
+        columnStyles: { 
+            0: { halign: 'center' }, 
+            2: { halign: 'center' }, 
+            3: { halign: 'center' }, 
+            4: { halign: 'center' } 
+        }
+    });
+
+    // 4. Ringkasan Skor
+    const finalY = doc.lastAutoTable.finalY + 10;
+
+    doc.setFillColor(234, 250, 241);
+    doc.rect(130, finalY, 70, 35, 'F');
+    doc.setDrawColor(40, 167, 69);
+    doc.rect(130, finalY, 70, 35, 'S');
+
+    doc.setTextColor(0, 0, 0);
+    doc.setFontSize(10);
+    doc.text("TOTAL SKOR", 135, finalY + 8);
+    doc.text("PERSENTASE", 135, finalY + 18);
+
+    doc.setFontSize(14);
+    doc.setTextColor(40, 167, 69);
+    doc.text(totalSkor.toString(), 170, finalY + 8);
+    doc.text(persentase, 170, finalY + 18);
+
+    // ===== STATUS =====
+    const status = document.getElementById('status-kelayakan').innerText;
+
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.text("STATUS KELAYAKAN:", 15, finalY + 50);
+
+    doc.setFontSize(16);
+
+    if (status === "LAIK SEHAT") {
+        doc.setTextColor(40,167,69);
+    } else {
+        doc.setTextColor(220,53,69);
+    }
+
+    doc.text(status, 15, finalY + 60);
+
+    doc.save(`IKL_SPPG_${document.getElementById('nama_sppg').value || 'Form'}.pdf`);
+}
+
+
+</script>
+
+</body>
+</html>
